@@ -15,8 +15,7 @@ func Fail(c *gin.Context, err error) {
 		_ = errResp.WithErr(err)
 	}
 	if errResp.GetErr() != nil {
-		// 记录错误
-		zap.L().Error("server error ...", zap.Error(errResp.GetErr()))
+		zap.L().Error("server error ...", zap.Error(errResp.GetErr())) // 记录错误
 
 	}
 	c.JSON(http.StatusOK, &RetData{
